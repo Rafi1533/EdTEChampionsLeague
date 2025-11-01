@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EdTE Champions League Season 1 - Exciting football tournament with top teams battling for glory. Download forms, rules, and more.">
+    <meta name="keywords" content="football, tournament, EdTE, champions league, season 1">
+    <title>EdTE Champions League - Season 1</title>
+    <link rel="icon" href="https://img.icons8.com/small/16/ff0000/soccer-ball.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            background-image: url('Untitled design (6).png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(255, 0, 0, 0.95); /* Semi-transparent red for standard look */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="%23ff0000" opacity="0.1" width="1000" height="1000"/></svg>'); /* Overlay for readability */
+        }
+        .tournament-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .tournament-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 0.5rem;
+        }
+        .season {
+            font-size: 1.5rem;
+            color: #ff0000;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        .details {
+            background-color: rgba(51, 51, 51, 0.9);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .details p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        .details .start-date {
+            color: #ff0000;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Download Sections */
+        .download-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            gap: 2rem;
+        }
+        .download-card {
+            background: linear-gradient(145deg, rgba(255, 0, 0, 0.9), rgba(204, 0, 0, 0.9));
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 250px;
+            flex: 1;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .download-card:hover::before {
+            left: 100%;
+        }
+        .download-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        .download-card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        .download-btn {
+            background: #fff;
+            color: #ff0000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .download-btn:hover {
+            background: #f0f0f0;
+            color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Teams Section */
+        .teams-section {
+            padding: 3rem 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .teams-section h2 {
+            color: #ff0000;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px #000;
+            font-weight: 700;
+        }
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .team-card {
+            perspective: 1000px;
+            height: 250px;
+        }
+        .team-flip {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+        .team-flip:hover {
+            transform: rotateY(180deg);
+        }
+        .team-front, .team-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+        .team-front:hover, .team-back:hover {
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        .team-front {
+            background: linear-gradient(145deg, #fff, #f0f0f0);
+        }
+        .team-back {
+            background: linear-gradient(145deg, #ff0000, #cc0000);
+            transform: rotateY(180deg);
+        }
+        .team-logo {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #ff0000;
+        }
+        .batch-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Image Banner Section */
+        .banner-section {
+            margin: 3rem 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        .banner-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease;
+        }
+        .banner-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(255, 0, 0, 0.95);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            display: inline-block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .footer-links a:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .footer-links img {
+            width: 32px;
+            height: 32px;
+        }
+        .footer p {
+            color: #fff;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .season {
+                font-size: 1.2rem;
+            }
+            .download-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .teams-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .team-flip {
+                width: 150px;
+                height: 200px;
+            }
+            .team-logo {
+                width: 100px;
+            }
+            .banner-img {
+                height: 250px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            body {
+                background-attachment: scroll; /* For mobile performance */
+            }
+            .tournament-logo {
+                width: 80px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            nav .container {
+                padding: 0 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <img src="TournamentLOGO.png" alt="Tournament Logo" class="tournament-logo">
+                <h1>EdTE Champions League</h1>
+                <p class="season">Season 1</p>
+            </div>
+        </section>
+
+        <section class="details">
+            <div class="container">
+                <p>First ever departmental football tournament of University of Frontier Technology, Bangladesh. We are creating history. Venue for every match: UFTB central Field.Follow the action, download forms, and get ready for the ultimate showdown.</p>
+                <p class="start-date">Starting 5th November</p>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="container">
+                <div class="download-card">
+                    <h3>Download Team Form</h3>
+                    <a href="Team Form.pdf" download="team_form.pdf" class="download-btn">Download PDF</a>
+                </div>
+                <div class="download-card">
+                    <h3>Download Rule Book</h3>
+                    <a href="RuleBOOK.pdf" download="rule_book.pdf" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="teams-section">
+            <div class="container">
+                <h2>Participating Teams</h2>
+                <div class="teams-grid">
+                    <div class="team-card">
+                        <div class="team-flip">
+                            <div class="team-front">
+                                <img src="3rd.png" alt="Team 1 Logo" class="team-logo">
+                            </div>
+                            <div class="team-back">
+                                <div class="batch-name">EdTE 3rd Batch</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-flip">
+                            <div class="team-front">
+                                <img src="4th.png" alt="Team 2 Logo" class="team-logo">
+                            </div>
+                            <div class="team-back">
+                                <div class="batch-name">EdTE 4th Batch</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-flip">
+                            <div class="team-front">
+                                <img src="5th.jpg" alt="EdTE 5th Batch" class="team-logo">
+                            </div>
+                            <div class="team-back">
+                                <div class="batch-name">EdTE 5th Batch</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-flip">
+                            <div class="team-front">
+                                <img src="06 (1).jpg" alt="EdTE 6th Batch" class="team-logo">
+                            </div>
+                            <div class="team-back">
+                                <div class="batch-name">EdTE 6th Batch</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-flip">
+                            <div class="team-front">
+                                <img src="7th.png" alt="EdTE 7th Batch" class="team-logo">
+                            </div>
+                            <div class="team-back">
+                                <div class="batch-name">EdTE 7th Batch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner-section">
+            <div class="container">
+                <img src="bnr.png" alt="Tournament Banner" class="banner-img">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.facebook.com/share/1BQZhPM6ZB/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+                    <img src="face.png" alt="Facebook Icon">
+                </a>
+                <a href="https://edte.uftb.ac.bd/" target="_blank" rel="noopener" aria-label="Website">
+                    <img src="web.png" alt="Website Icon">
+                </a>
+            </div>
+            <p>&copy; EdTE Champions League. Department Of EdTE, UFTB. @rafiman</p>
+        </div>
+    </footer>
+</body>
+</html>
